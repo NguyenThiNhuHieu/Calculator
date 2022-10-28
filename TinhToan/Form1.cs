@@ -23,5 +23,13 @@ namespace TinhToan
             double c = a + b;
             txtKetQua.Text = c.ToString();
         }
+
+        private void btTru_Click(object sender, EventArgs e)
+        {
+            double a = double.Parse(txtSoA.Text);
+            double b = double.Parse(txtSoB.Text);
+            double c = a - b;
+            txtKetQua.Text = c.ToString();
+        }
     }
 }
