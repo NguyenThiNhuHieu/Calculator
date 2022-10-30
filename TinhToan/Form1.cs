@@ -63,5 +63,12 @@ namespace TinhToan
                 txtKetQua.Text = c.ToString();
             }
         }
+
+        private void btSoSanh_Click(object sender, EventArgs e)
+        {
+            int a = int.Parse(txtSoA.Text);
+            int b = int.Parse(txtSoB.Text);
+            
+        }
     }
 }

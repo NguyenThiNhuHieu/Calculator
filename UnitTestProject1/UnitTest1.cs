@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using TinhToan;
-namespace CalculatorTest
+namespace UnitTestProject1
 {
     [TestClass]
 

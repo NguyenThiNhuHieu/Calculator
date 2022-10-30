@@ -1,8 +1,16 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TinhToan;
-namespace CalculatorTest
+namespace CalculationTest
 {
+    //[TestClass]
+    //public class UnitTest
+    //{
+    //    [TestMethod]
+    //    public void TestMethod1()
+    //    {
+    //    }
+    //}
     [TestClass]
 
     public class UnitTest1
@@ -67,12 +75,27 @@ namespace CalculatorTest
         @".\Data\TestData.csv", "TestData#csv", DataAccessMethod.Sequential)]
         public void TestLayDLCong()
         {
+            int a, b, expected;
+            string operation;
+            a = int.Parse(TestContext.DataRow[0].ToString());
+            b = int.Parse(TestContext.DataRow[1].ToString());
+            operation = TestContext.DataRow[2].ToString();
+            operation = operation.Remove(0, 1);
+            expected = int.Parse(TestContext.DataRow[3].ToString());
+            c = new Calculation(a, b);
+            Assert.AreEqual(expected, c.Execute(operation));
+        }
+        [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV",
+        @".\Data\TestData.csv", "TestDataSoSanh#csv", DataAccessMethod.Sequential)]
+        public void TestLayDLSoSanh()
+        {
             int a, b, expected, actual;
             a = int.Parse(TestContext.DataRow[0].ToString());
             b = int.Parse(TestContext.DataRow[1].ToString());
             expected = int.Parse(TestContext.DataRow[2].ToString());
             c = new Calculation(a, b);
-            actual = c.Execute("+");
+            actual = c.SoSanh(a, b);
             Assert.AreEqual(expected, actual);
         }
     }
