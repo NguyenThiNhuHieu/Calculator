@@ -20,19 +20,48 @@ namespace TinhToan
         {
             if(txtSoA.Text != String.Empty && txtSoB.Text != String.Empty)
             {
-                double a = double.Parse(txtSoA.Text);
-                double b = double.Parse(txtSoB.Text);
-                double c = a + b;
+                int a = int.Parse(txtSoA.Text);
+                int b = int.Parse(txtSoB.Text);
+                Calculation c = new Calculation(a, b);
+                int kq = c.Execute("+");
                 txtKetQua.Text = c.ToString();
             }
         }
 
         private void btTru_Click(object sender, EventArgs e)
         {
-            double a = double.Parse(txtSoA.Text);
-            double b = double.Parse(txtSoB.Text);
-            double c = a - b;
-            txtKetQua.Text = c.ToString();
+            if (txtSoA.Text != String.Empty && txtSoB.Text != String.Empty)
+            {
+                int a = int.Parse(txtSoA.Text);
+                int b = int.Parse(txtSoB.Text);
+                Calculation c = new Calculation(a, b);
+                int kq = c.Execute("-");
+                txtKetQua.Text = c.ToString();
+            }
+        }
+
+        private void btNhan_Click(object sender, EventArgs e)
+        {
+            if (txtSoA.Text != String.Empty && txtSoB.Text != String.Empty)
+            {
+                int a = int.Parse(txtSoA.Text);
+                int b = int.Parse(txtSoB.Text);
+                Calculation c = new Calculation(a, b);
+                int kq = c.Execute("*");
+                txtKetQua.Text = c.ToString();
+            }
+        }
+
+        private void btChia_Click(object sender, EventArgs e)
+        {
+            if (txtSoA.Text != String.Empty && txtSoB.Text != String.Empty)
+            {
+                int a = int.Parse(txtSoA.Text);
+                int b = int.Parse(txtSoB.Text);
+                Calculation c = new Calculation(a, b);
+                int kq = c.Execute("/");
+                txtKetQua.Text = c.ToString();
+            }
         }
     }
 }
